@@ -1,0 +1,192 @@
+@charset "UTF-8";
+
+:root {
+  --primary-color: #8d3f3f;
+  --sub-color: #525737;
+  --dark-color: black;
+  --white-color: white;
+}
+
+:root {
+  --z-index--1: -1;
+  --z-index-1: 1;
+  --z-index-100: 100;
+  --z-index-150: 150;
+}
+
+.home-wrapper {
+  background-image: url("../assets/images/hanahuda-background-image.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 8px 8px 0 8px;
+}
+
+main {
+  margin-top: 40px;
+}
+@media screen and (min-width: 768px) {
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 12%;
+  }
+}
+
+.header-text {
+  color: var(--sub-color);
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .header-text {
+    font-size: 64px;
+  }
+}
+
+.hamburger-menu-bars-wrapper {
+  position: fixed;
+  z-index: var(--z-index-100);
+  cursor: pointer;
+  width: 64px;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .hamburger-menu-bars-wrapper {
+    width: 80px;
+    height: 72px;
+  }
+}
+
+.hamburger-menu-bar {
+  width: 100%;
+  height: 12px;
+  background-color: var(--sub-color);
+}
+@media screen and (min-width: 768px) {
+  .hamburger-menu-bar {
+    height: 16px;
+  }
+}
+
+.hamburger-menu-buttons-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: var(--z-index-1);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.hamburger-menu-buttons-wrapper {
+  transform: translateX(100vw);
+}
+
+.hamburger-menu-buttons-wrapper.is-active {
+  transform: translateX(0);
+}
+
+.hamburger-menu-button {
+  cursor: pointer;
+  color: var(--white-color);
+  font-size: 24px;
+  font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+  .hamburger-menu-button {
+    font-size: 40px;
+  }
+}
+
+.game-type-buttons-wrapper {
+  height: 400px;
+  overflow-y: scroll;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.game-type-buttons-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.game-type-button-wrapper {
+  width: 320px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  border: 4px solid var(--dark-color);
+  border-radius: 100px;
+}
+
+.game-type-button {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: var(--white-color);
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 100px;
+}
+@media screen and (min-width: 768px) {
+  .game-type-button {
+    font-size: 48px;
+  }
+}
+
+.game-start-panel-wrapper {
+  margin-top: 40px;
+}
+@media screen and (min-width: 768px) {
+  .game-start-panel-wrapper {
+    margin-top: 0;
+  }
+}
+
+.game-start-buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.game-start-button-wrapper {
+  width: 160px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid var(--dark-color);
+  background-color: var(--sub-color);
+}
+
+.game-start-button {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: var(--white-color);
+  font-size: 24px;
+  font-weight: bold;
+}
