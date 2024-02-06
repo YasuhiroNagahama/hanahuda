@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+:root {
+  --primary-color: #8d3f3f;
+  --sub-color: #525737;
+  --dark-color: black;
+  --white-color: white;
+}
+
+:root {
+  --z-index--1: -1;
+  --z-index-1: 1;
+  --z-index-100: 100;
+  --z-index-150: 150;
+}
+
+/* .game-page-wrapper {
+  background-image: url("../assets/images/hanahuda-tatami.jpg");
+  background-size: contain;
+  width: 100%;
+  height: 100vh;
+} */
+
+header {
+  position: relative;
+  padding: 8px 0 0 8px;
+}
+
+.hamburger-menu-bars-wrapper {
+  position: fixed;
+  z-index: var(--z-index-100);
+  cursor: pointer;
+  width: 80px;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hamburger-menu-bar {
+  width: 100%;
+  height: 16px;
+  background-color: var(--sub-color);
+}
+
+.hamburger-menu-buttons-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: var(--z-index-1);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.hamburger-menu-buttons-wrapper {
+  transform: translateX(100vw);
+}
+
+.hamburger-menu-buttons-wrapper.is-active {
+  transform: translateX(0);
+}
+
+.hamburger-menu-button {
+  cursor: pointer;
+  color: var(--white-color);
+  font-size: 40px;
+  font-weight: bold;
+}
