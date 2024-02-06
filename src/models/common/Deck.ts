@@ -2,45 +2,44 @@ import { GameTypes } from "../../types/common/GameTypes";
 import { Card } from "./Card";
 
 class Deck {
-  private deck: Card[];
-  private gameType: GameTypes;
+  private readonly _gameType: GameTypes;
+  private _cards: Card[] = [];
 
-  constructor(deck: Card[], gameType: GameTypes) {
-    this.deck = deck;
-    this.gameType = gameType;
+  constructor(gameType: GameTypes) {
+    this._gameType = gameType;
   }
 
-  shuffle(): void {
+  public shuffle(): void {
     // デッキをシャッフルするロジック
     // (省略)
   }
 
-  isEmpty(): boolean {
-    return this.deck.length === 0;
+  public isEmpty(): boolean {
+    return this._cards.length === 0;
   }
 
-  resetDeck(): void {
+  public resetDeck(): void {
     // デッキをリセットするロジック
     // (省略)
   }
 
-  drawCard(): Card {
+  public drawCard(): Card {
     if (this.isEmpty()) {
       throw new Error("The deck is empty.");
     }
-    return this.deck.pop()!;
+    return this._cards.pop()!;
   }
 
-  getRemainingCardsCount(): number {
-    return this.deck.length;
+  get remainingCardsCount(): number {
+    return this._cards.length;
   }
 
-  getDeck(): Card[] {
-    return this.deck;
+  get deck(): Card[] {
+    return this._cards;
   }
 
-  getGameType(): GameTypes {
-    return this.gameType;
+  get gameType(): GameTypes {
+    return this._gameType;
   }
 }
 

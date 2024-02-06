@@ -1,27 +1,34 @@
 import { Months } from "../../types/common/Months";
+import { Names } from "../../types/common/Names";
 import { Plants } from "../../types/common/Plants";
 
 class Card {
-  private month: Months;
-  private plant: Plants;
-  private points: number;
+  private readonly _name: Names;
+  private readonly _month: Months;
+  private readonly _plant: Plants;
+  private readonly _points: number;
 
-  constructor(month: Months, plant: Plants, points: number) {
-    this.month = month;
-    this.plant = plant;
-    this.points = points;
+  constructor(name: Names, month: Months, plant: Plants, points: number) {
+    this._name = name;
+    this._month = month;
+    this._plant = plant;
+    this._points = points;
   }
 
-  getMonth(): Months {
-    return this.month;
+  get name(): Names {
+    return this._name;
   }
 
-  getPlant(): Plants {
-    return this.plant;
+  get month(): Months {
+    return this._month;
   }
 
-  getPoints(): number {
-    return this.points;
+  get plant(): Plants {
+    return this._plant;
+  }
+
+  get points(): number {
+    return this._points;
   }
 }
 

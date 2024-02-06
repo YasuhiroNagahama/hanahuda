@@ -4,48 +4,48 @@ import { Hand } from "./Hand";
 import { PlayerTypes } from "../../types/common/PlayerTypes";
 
 class Player {
-  private playerName: string;
-  private playerType: PlayerTypes;
-  private hand: Hand;
-  private capturedCards: CapturedCards;
+  private readonly _playerName: string;
+  private readonly _playerType: PlayerTypes;
+  private _hand: Hand;
+  private _capturedCards: CapturedCards;
 
   constructor(playerName: string, playerType: PlayerTypes) {
-    this.playerName = playerName;
-    this.playerType = playerType;
-    this.hand = new Hand();
-    this.capturedCards = new CapturedCards();
+    this._playerName = playerName;
+    this._playerType = playerType;
+    this._hand = new Hand();
+    this._capturedCards = new CapturedCards();
   }
 
-  addHand(card: Card): void {
-    this.hand.addCard(card);
+  public addCard(card: Card): void {
+    this._hand.addCard(card);
   }
 
-  addCapturedCards(card: Card): void {
-    this.capturedCards.addCard(card);
+  public addCapturedCard(card: Card): void {
+    this._capturedCards.addCard(card);
   }
 
-  resetHand(): void {
-    this.hand.resetHand();
+  public resetCards(): void {
+    this._hand.resetCards();
   }
 
-  resetCapturedCards(): void {
-    this.capturedCards.resetCapturedCards();
+  public resetCapturedCards(): void {
+    this._capturedCards.resetCards();
   }
 
-  getPlayerName(): string {
-    return this.playerName;
+  get playerName(): string {
+    return this._playerName;
   }
 
-  getPlayerType(): PlayerTypes {
-    return this.playerType;
+  get playerType(): PlayerTypes {
+    return this._playerType;
   }
 
-  getHand(): Hand {
-    return this.hand;
+  get hand(): Hand {
+    return this._hand;
   }
 
-  getCapturedCards(): CapturedCards {
-    return this.capturedCards;
+  get capturedCards(): CapturedCards {
+    return this._capturedCards;
   }
 }
 
