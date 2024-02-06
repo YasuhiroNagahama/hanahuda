@@ -1,46 +1,61 @@
+import { CARDINFOARR } from "../../constants/common/CardInfo";
 import { GameTypes } from "../../types/common/GameTypes";
+import { CardInfo } from "../../types/common/CardInfo";
 import { Card } from "./Card";
 
 class Deck {
-  private deck: Card[];
-  private gameType: GameTypes;
+  private readonly _gameType: GameTypes;
+  private _cards: Card[] = [];
 
-  constructor(deck: Card[], gameType: GameTypes) {
-    this.deck = deck;
-    this.gameType = gameType;
+  constructor(gameType: GameTypes) {
+    this._gameType = gameType;
   }
 
-  shuffle(): void {
-    // デッキをシャッフルするロジック
-    // (省略)
+  public createDeck(): void {
+    CARDINFOARR.forEach((CARDINFO: CardInfo) => {
+      this._cards.push(
+        new Card(
+          CARDINFO.cardName,
+          CARDINFO.cardType,
+          CARDINFO.months,
+          CARDINFO.plant
+        )
+      );
+    });
   }
 
-  isEmpty(): boolean {
-    return this.deck.length === 0;
+  public resetDeck(): void {
+    this._cards = [];
   }
 
-  resetDeck(): void {
-    // デッキをリセットするロジック
-    // (省略)
+  public shuffle(): void {
+    for (let i: number = this._cards.length - 1; i >= 0; i -= 1) {
+      const j: number = Math.floor(Math.random() * (i + 1));
+      [this._cards[i], this._cards[j]] = [this._cards[j], this._cards[i]];
+    }
   }
 
-  drawCard(): Card {
+  public isEmpty(): boolean {
+    return this._cards.length === 0;
+  }
+
+  public drawCard(): Card {
     if (this.isEmpty()) {
       throw new Error("The deck is empty.");
     }
-    return this.deck.pop()!;
+    return this._cards.pop()!;
   }
 
-  getRemainingCardsCount(): number {
-    return this.deck.length;
+  get remainingCardsCount(): number {
+    return this._cards.length;
   }
 
-  getDeck(): Card[] {
-    return this.deck;
+  get deck(): Card[] {
+    return this._cards;
   }
 
-  getGameType(): GameTypes {
-    return this.gameType;
+  get gameType(): GameTypes {
+    return this._gameType;
   }
 }
 

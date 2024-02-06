@@ -1,16 +1,16 @@
 enum Plants {
-    Pine = "Matsu",
-    Plum = "Ume",
-    Sakura = "Sakura",
-    Wisteria = "Fuji",
-    Iris = "Shoubu",
-    Peony = "Botan",
-    Clover = "Seru",
-    Susuki = "Susuki",
-    Chrysanthemum = "Kiku",
-    Maple = "Momiji",
-    Willow = "Yanagi",
-    Paulownia = "Kiri",
+  松 = "松",
+  梅 = "梅",
+  桜 = "桜",
+  藤 = "藤",
+  杜若 = "杜若",
+  牡丹 = "牡丹",
+  萩 = "萩",
+  芒 = "芒",
+  菊 = "菊",
+  紅葉 = "紅葉",
+  柳 = "柳",
+  桐 = "桐",
 }
 
 export { Plants };

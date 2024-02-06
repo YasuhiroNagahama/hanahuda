@@ -1,0 +1,298 @@
+import { CardNames } from "../../types/common/CardNames";
+import { CardTypes } from "../../types/common/CardTypes";
+import { Months } from "../../types/common/Months";
+import { Plants } from "../../types/common/Plants";
+import { CardInfo } from "../../types/common/CardInfo";
+
+const CARDINFOARR: CardInfo[] = [
+  {
+    cardName: CardNames.松,
+    cardType: CardTypes.カス,
+    months: Months.January,
+    plant: Plants.松,
+  },
+  {
+    cardName: CardNames.松,
+    cardType: CardTypes.カス,
+    months: Months.January,
+    plant: Plants.松,
+  },
+  {
+    cardName: CardNames.松に赤短,
+    cardType: CardTypes.短冊,
+    months: Months.January,
+    plant: Plants.松,
+  },
+  {
+    cardName: CardNames.松に鶴,
+    cardType: CardTypes.光札,
+    months: Months.January,
+    plant: Plants.松,
+  },
+  {
+    cardName: CardNames.梅,
+    cardType: CardTypes.カス,
+    months: Months.February,
+    plant: Plants.梅,
+  },
+  {
+    cardName: CardNames.梅,
+    cardType: CardTypes.カス,
+    months: Months.February,
+    plant: Plants.梅,
+  },
+  {
+    cardName: CardNames.梅に赤短,
+    cardType: CardTypes.カス,
+    months: Months.February,
+    plant: Plants.梅,
+  },
+  {
+    cardName: CardNames.梅に鴬,
+    cardType: CardTypes.種札,
+    months: Months.February,
+    plant: Plants.梅,
+  },
+  {
+    cardName: CardNames.桜,
+    cardType: CardTypes.カス,
+    months: Months.March,
+    plant: Plants.桜,
+  },
+  {
+    cardName: CardNames.桜,
+    cardType: CardTypes.カス,
+    months: Months.March,
+    plant: Plants.桜,
+  },
+  {
+    cardName: CardNames.桜に赤短,
+    cardType: CardTypes.短冊,
+    months: Months.March,
+    plant: Plants.桜,
+  },
+  {
+    cardName: CardNames.満開の桜に幔幕,
+    cardType: CardTypes.光札,
+    months: Months.March,
+    plant: Plants.桜,
+  },
+  {
+    cardName: CardNames.藤,
+    cardType: CardTypes.カス,
+    months: Months.April,
+    plant: Plants.藤,
+  },
+  {
+    cardName: CardNames.藤,
+    cardType: CardTypes.カス,
+    months: Months.April,
+    plant: Plants.藤,
+  },
+  {
+    cardName: CardNames.藤に短冊,
+    cardType: CardTypes.短冊,
+    months: Months.April,
+    plant: Plants.藤,
+  },
+  {
+    cardName: CardNames.藤に時鳥,
+    cardType: CardTypes.光札,
+    months: Months.April,
+    plant: Plants.藤,
+  },
+  {
+    cardName: CardNames.杜若,
+    cardType: CardTypes.カス,
+    months: Months.May,
+    plant: Plants.杜若,
+  },
+  {
+    cardName: CardNames.杜若,
+    cardType: CardTypes.カス,
+    months: Months.May,
+    plant: Plants.杜若,
+  },
+  {
+    cardName: CardNames.杜若に短冊,
+    cardType: CardTypes.短冊,
+    months: Months.May,
+    plant: Plants.杜若,
+  },
+  {
+    cardName: CardNames.杜若に八橋,
+    cardType: CardTypes.種札,
+    months: Months.May,
+    plant: Plants.杜若,
+  },
+  {
+    cardName: CardNames.牡丹,
+    cardType: CardTypes.カス,
+    months: Months.June,
+    plant: Plants.牡丹,
+  },
+  {
+    cardName: CardNames.牡丹,
+    cardType: CardTypes.カス,
+    months: Months.June,
+    plant: Plants.牡丹,
+  },
+  {
+    cardName: CardNames.牡丹に青短,
+    cardType: CardTypes.短冊,
+    months: Months.June,
+    plant: Plants.牡丹,
+  },
+  {
+    cardName: CardNames.花王に蝶,
+    cardType: CardTypes.種札,
+    months: Months.June,
+    plant: Plants.牡丹,
+  },
+  {
+    cardName: CardNames.萩,
+    cardType: CardTypes.カス,
+    months: Months.July,
+    plant: Plants.萩,
+  },
+  {
+    cardName: CardNames.萩,
+    cardType: CardTypes.カス,
+    months: Months.July,
+    plant: Plants.萩,
+  },
+  {
+    cardName: CardNames.萩に短冊,
+    cardType: CardTypes.短冊,
+    months: Months.July,
+    plant: Plants.萩,
+  },
+  {
+    cardName: CardNames.山萩に山猪,
+    cardType: CardTypes.種札,
+    months: Months.July,
+    plant: Plants.萩,
+  },
+  {
+    cardName: CardNames.芒,
+    cardType: CardTypes.カス,
+    months: Months.August,
+    plant: Plants.芒,
+  },
+  {
+    cardName: CardNames.芒,
+    cardType: CardTypes.カス,
+    months: Months.August,
+    plant: Plants.芒,
+  },
+  {
+    cardName: CardNames.芒に雁,
+    cardType: CardTypes.種札,
+    months: Months.August,
+    plant: Plants.芒,
+  },
+  {
+    cardName: CardNames.芒に望月,
+    cardType: CardTypes.光札,
+    months: Months.August,
+    plant: Plants.芒,
+  },
+  {
+    cardName: CardNames.菊,
+    cardType: CardTypes.カス,
+    months: Months.September,
+    plant: Plants.菊,
+  },
+  {
+    cardName: CardNames.菊,
+    cardType: CardTypes.カス,
+    months: Months.September,
+    plant: Plants.菊,
+  },
+  {
+    cardName: CardNames.菊に青短,
+    cardType: CardTypes.短冊,
+    months: Months.September,
+    plant: Plants.菊,
+  },
+  {
+    cardName: CardNames.菊に盃,
+    cardType: CardTypes.種札,
+    months: Months.September,
+    plant: Plants.菊,
+  },
+  {
+    cardName: CardNames.紅葉,
+    cardType: CardTypes.カス,
+    months: Months.October,
+    plant: Plants.紅葉,
+  },
+  {
+    cardName: CardNames.紅葉,
+    cardType: CardTypes.カス,
+    months: Months.October,
+    plant: Plants.紅葉,
+  },
+  {
+    cardName: CardNames.紅葉に青短,
+    cardType: CardTypes.短冊,
+    months: Months.October,
+    plant: Plants.紅葉,
+  },
+  {
+    cardName: CardNames.楓に鹿,
+    cardType: CardTypes.種札,
+    months: Months.October,
+    plant: Plants.紅葉,
+  },
+  {
+    cardName: CardNames.柳,
+    cardType: CardTypes.カス,
+    months: Months.November,
+    plant: Plants.柳,
+  },
+  {
+    cardName: CardNames.柳に短冊,
+    cardType: CardTypes.短冊,
+    months: Months.November,
+    plant: Plants.柳,
+  },
+  {
+    cardName: CardNames.柳に燕,
+    cardType: CardTypes.種札,
+    months: Months.November,
+    plant: Plants.柳,
+  },
+  {
+    cardName: CardNames.柳に小野道風,
+    cardType: CardTypes.光札,
+    months: Months.November,
+    plant: Plants.柳,
+  },
+  {
+    cardName: CardNames.桐,
+    cardType: CardTypes.カス,
+    months: Months.December,
+    plant: Plants.桐,
+  },
+  {
+    cardName: CardNames.桐,
+    cardType: CardTypes.カス,
+    months: Months.December,
+    plant: Plants.桐,
+  },
+  {
+    cardName: CardNames.桐,
+    cardType: CardTypes.カス,
+    months: Months.December,
+    plant: Plants.桐,
+  },
+  {
+    cardName: CardNames.五桐に鳳凰,
+    cardType: CardTypes.光札,
+    months: Months.December,
+    plant: Plants.桐,
+  },
+];
+
+export { CARDINFOARR };

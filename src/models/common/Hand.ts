@@ -1,26 +1,22 @@
 import { Card } from "./Card";
 
 class Hand {
-  private cards: Card[];
+  private _cards: Card[] = [];
 
-  constructor(cards: Card[] = []) {
-    this.cards = cards;
-  }
-
-  addCard(card: Card): void {
+  public addCard(card: Card): void {
     this.cards.push(card);
   }
 
-  resetHand(): void {
-    this.cards = [];
+  public resetCards(): void {
+    this._cards = [];
   }
 
-  getRemainingCardsCount(): number {
+  get remainingCardsCount(): number {
     return this.cards.length;
   }
 
-  getHand(): Card[] {
-    return this.cards;
+  get cards(): Card[] {
+    return this._cards;
   }
 }
 

@@ -1,6 +1,6 @@
 enum PlayerTypes {
-  Player = "player",
-  Ai = "ai",
+  Player = "Player",
+  Ai = "Ai",
 }
 
 export { PlayerTypes };

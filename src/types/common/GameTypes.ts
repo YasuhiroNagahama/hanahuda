@@ -1,16 +1,16 @@
 enum GameTypes {
-  Koikoi = "koikoi",
-  Roppyakken = "roppyakken",
-  Hanaawase = "hanaawase",
-  Hatihati = "hatihati",
-  Hatihatiginmi = "hatihatiginmi",
-  Kingo = "kingo",
-  Musi = "musi",
-  Etyobo = "etyobo",
-  Otioikabu = "otioikabu",
-  Hikikabu = "hikikabu",
-  Poka = "poka",
-  None = "none",
+  こいこい = "こいこい",
+  六百間 = "六百間",
+  花合わせ = "花合わせ",
+  八八 = "八八",
+  八八吟味 = "八八吟味",
+  きんご = "きんご",
+  むし = "むし",
+  えちょぼ = "えちょぼ",
+  おちょいかぶ = "おちょいかぶ",
+  引きカブ = "引きカブ",
+  ポカ = "ポカ",
+  None = "None",
 }
 
 export { GameTypes };

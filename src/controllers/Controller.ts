@@ -5,7 +5,7 @@ export class Controller {
   private gameType: GameTypes;
 
   constructor() {
-    this.gameType = GameTypes.none;
+    this.gameType = GameTypes.None;
   }
 
   public static addHomeView(): void {

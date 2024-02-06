@@ -4,37 +4,30 @@ import { Deck } from "./Deck";
 import { FieldCards } from "./FieldCards";
 
 class Table {
-  private gameType: GameTypes;
-  private players: Player[];
-  private deck: Deck;
-  private fieldCards: FieldCards;
+  private readonly _gameType: GameTypes;
+  private _players: Player[] = [];
+  private _deck: Deck;
+  private _fieldCards: FieldCards = new FieldCards();
 
-  constructor(
-    gameType: GameTypes,
-    players: Player[],
-    deck: Deck,
-    fieldCards: FieldCards
-  ) {
-    this.gameType = gameType;
-    this.players = players;
-    this.deck = deck;
-    this.fieldCards = fieldCards;
+  constructor(gameType: GameTypes) {
+    this._gameType = gameType;
+    this._deck = new Deck(this._gameType);
   }
 
   getGameType(): GameTypes {
-    return this.gameType;
+    return this._gameType;
   }
 
   getPlayers(): Player[] {
-    return this.players;
+    return this._players;
   }
 
   getDeck(): Deck {
-    return this.deck;
+    return this._deck;
   }
 
   getFieldCards(): FieldCards {
-    return this.fieldCards;
+    return this._fieldCards;
   }
 }
 

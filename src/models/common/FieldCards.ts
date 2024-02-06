@@ -1,26 +1,22 @@
 import { Card } from "./Card";
 
 class FieldCards {
-  private cards: Card[];
-
-  constructor(cards: Card[] = []) {
-    this.cards = cards;
-  }
+  private _cards: Card[] = [];
 
   addCard(card: Card): void {
-    this.cards.push(card);
+    this._cards.push(card);
   }
 
-  resetFieldCards(): void {
-    this.cards = [];
+  resetCards(): void {
+    this._cards = [];
   }
 
-  getRemainingCardsCount(): number {
-    return this.cards.length;
+  get remainingCardsCount(): number {
+    return this._cards.length;
   }
 
-  getFieldCards(): Card[] {
-    return this.cards;
+  get cards(): Card[] {
+    return this._cards;
   }
 }
 
