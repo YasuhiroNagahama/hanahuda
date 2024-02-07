@@ -14,19 +14,19 @@ class Table {
     this._deck = new Deck(this._gameType);
   }
 
-  getGameType(): GameTypes {
+  get gameType(): GameTypes {
     return this._gameType;
   }
 
-  getPlayers(): Player[] {
+  get players(): Player[] {
     return this._players;
   }
 
-  getDeck(): Deck {
+  get deck(): Deck {
     return this._deck;
   }
 
-  getFieldCards(): FieldCards {
+  get fieldCards(): FieldCards {
     return this._fieldCards;
   }
 }

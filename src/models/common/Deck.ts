@@ -1,6 +1,9 @@
 import { CARDINFOARR } from "../../constants/common/CardInfo";
 import { GameTypes } from "../../types/common/GameTypes";
 import { CardInfo } from "../../types/common/CardInfo";
+import { Months } from "../../types/common/Months";
+import { Plants } from "../../types/common/Plants";
+import { CardTypes } from "../../types/common/CardTypes";
 import { Card } from "./Card";
 
 class Deck {
@@ -9,19 +12,79 @@ class Deck {
 
   constructor(gameType: GameTypes) {
     this._gameType = gameType;
+    this._cards = this.createDeck(this.selectCardsForGame(this._gameType));
   }
 
-  public createDeck(): void {
-    CARDINFOARR.forEach((CARDINFO: CardInfo) => {
-      this._cards.push(
+  private selectCardsForGame(gameType: GameTypes): CardInfo[] {
+    switch (gameType) {
+      case GameTypes.かちかち:
+        return this.selectCardsForKatikati([Months.November, Months.December]);
+      case GameTypes.むし:
+        return this.selectCardsForPlants([Plants.牡丹, Plants.萩]);
+      case GameTypes.きんご:
+      case GameTypes.おちょいかぶ:
+      case GameTypes.引きカブ:
+        return this.selectCardsForMonths([Months.November, Months.December]);
+      case GameTypes.ポカ:
+        return this.selectCardsForMonths([
+          Months.August,
+          Months.September,
+          Months.October,
+          Months.November,
+          Months.December,
+        ]);
+      case GameTypes.えちょぼ:
+        return this.selectCardsForMonths([
+          Months.July,
+          Months.August,
+          Months.September,
+          Months.October,
+          Months.November,
+          Months.December,
+        ]);
+      default:
+        return CARDINFOARR;
+    }
+  }
+
+  private selectCardsForKatikati(months: Months[]): CardInfo[] {
+    const katikatiMonthsArr: Months[] = [
+      Months.January,
+      Months.April,
+      Months.October,
+    ];
+    return CARDINFOARR.filter((cardInfo) => {
+      const isKasu: boolean = cardInfo.cardType === CardTypes.カス;
+      const isStripPaper: boolean = cardInfo.cardType === CardTypes.短冊;
+
+      (!months.includes(cardInfo.months) && isKasu) ||
+        (katikatiMonthsArr.includes(cardInfo.months) && isStripPaper);
+    });
+  }
+
+  private selectCardsForMonths(months: Months[]): CardInfo[] {
+    return CARDINFOARR.filter((cardInfo) => !months.includes(cardInfo.months));
+  }
+
+  private selectCardsForPlants(plants: Plants[]): CardInfo[] {
+    return CARDINFOARR.filter((cardInfo) => !plants.includes(cardInfo.plant));
+  }
+
+  private createDeck(cardsInfo: CardInfo[]): Card[] {
+    const cards: Card[] = [];
+
+    cardsInfo.forEach((cardInfo: CardInfo) => {
+      cards.push(
         new Card(
-          CARDINFO.cardName,
-          CARDINFO.cardType,
-          CARDINFO.months,
-          CARDINFO.plant
+          cardInfo.cardName,
+          cardInfo.cardType,
+          cardInfo.months,
+          cardInfo.plant
         )
       );
     });
+
+    return cards;
   }
 
   public resetDeck(): void {
