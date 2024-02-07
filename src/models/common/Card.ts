@@ -1,14 +1,14 @@
+import { CardNames } from "../../types/common/CardNames";
+import { CardTypes } from "../../types/common/CardTypes";
 import { Months } from "../../types/common/Months";
 import { Plants } from "../../types/common/Plants";
-import { CardTypes } from "../../types/common/CardTypes";
-import { CardNames } from "../../types/common/CardNames";
 
 class Card {
   private readonly _cardName: CardNames;
   private readonly _cardType: CardTypes;
   private readonly _month: Months;
   private readonly _plant: Plants;
-  private _points: number = 0;
+  private readonly _points: number = 0;
 
   constructor(
     cardName: CardNames,
