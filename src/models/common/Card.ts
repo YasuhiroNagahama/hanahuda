@@ -8,18 +8,20 @@ class Card {
   private readonly _cardType: CardTypes;
   private readonly _month: Months;
   private readonly _plant: Plants;
-  private readonly _points: number = 0;
+  private readonly _points: number;
 
   constructor(
     cardName: CardNames,
     cardType: CardTypes,
     month: Months,
-    plant: Plants
+    plant: Plants,
+    points: number = 0
   ) {
     this._cardName = cardName;
     this._cardType = cardType;
     this._month = month;
     this._plant = plant;
+    this._points = points;
   }
 
   get cardName(): CardNames {
