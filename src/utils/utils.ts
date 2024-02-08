@@ -1,12 +1,12 @@
 import { CARDINFOARR } from "../constants/common/CardInfo";
-import { PointsCalculator } from "../models/common/PointsCalculator";
+import { PointsCalculator } from "../interfaces/common/PointsCalculator";
+import { CommonPointsCalculator } from "../models/common/CommonPointCalculator";
+import { RoppyakkennPointCalculator } from "../models/roppyakkenn/RoppyakkennPointCalculator";
 import { CardTypes } from "../types/common/CardTypes";
 import { GameTypes } from "../types/common/GameTypes";
-import { Plants } from "../types/common/Plants";
-import { Months } from "../types/common/Months";
 import { CardInfo } from "../types/common/CardInfo";
-import { RoppyakkennPointCalculator } from "../models/roppyakkenn/RoppyakkennPointCalculator";
-import { CommonPointsCalculator } from "../models/common/CommonPointCalculator";
+import { CardMonths } from "../types/common/CardMonths";
+import { CardPlants } from "../types/common/CardPlants";
 
 function hasCardPointsGame(gameType: GameTypes): boolean {
   const hasCardPointsGameArr: GameTypes[] = [
@@ -29,55 +29,55 @@ function getPointsCalculator(gameType: GameTypes): PointsCalculator {
 function selectCardsForGame(gameType: GameTypes): CardInfo[] {
   switch (gameType) {
     case GameTypes.かちかち:
-      return selectCardsForKatikati([Months.November, Months.December]);
+      return selectCardsForKatikati([CardMonths.November, CardMonths.December]);
     case GameTypes.むし:
-      return selectCardsForPlants([Plants.牡丹, Plants.萩]);
+      return selectCardsForPlants([CardPlants.牡丹, CardPlants.萩]);
     case GameTypes.きんご:
     case GameTypes.おちょいかぶ:
     case GameTypes.引きカブ:
-      return selectCardsForMonths([Months.November, Months.December]);
+      return selectCardsForMonths([CardMonths.November, CardMonths.December]);
     case GameTypes.ポカ:
       return selectCardsForMonths([
-        Months.August,
-        Months.September,
-        Months.October,
-        Months.November,
-        Months.December,
+        CardMonths.August,
+        CardMonths.September,
+        CardMonths.October,
+        CardMonths.November,
+        CardMonths.December,
       ]);
     case GameTypes.えちょぼ:
       return selectCardsForMonths([
-        Months.July,
-        Months.August,
-        Months.September,
-        Months.October,
-        Months.November,
-        Months.December,
+        CardMonths.July,
+        CardMonths.August,
+        CardMonths.September,
+        CardMonths.October,
+        CardMonths.November,
+        CardMonths.December,
       ]);
     default:
       return CARDINFOARR;
   }
 }
 
-function selectCardsForKatikati(months: Months[]): CardInfo[] {
-  const katikatiMonthsArr: Months[] = [
-    Months.January,
-    Months.April,
-    Months.October,
+function selectCardsForKatikati(months: CardMonths[]): CardInfo[] {
+  const katikatiMonthsArr: CardMonths[] = [
+    CardMonths.January,
+    CardMonths.April,
+    CardMonths.October,
   ];
   return CARDINFOARR.filter((cardInfo) => {
-    const isKasu: boolean = cardInfo.cardType === CardTypes.カス;
-    const isStripPaper: boolean = cardInfo.cardType === CardTypes.短冊;
+    const isKasu: boolean = cardInfo.type === CardTypes.カス;
+    const isStripPaper: boolean = cardInfo.type === CardTypes.短冊;
 
-    (!months.includes(cardInfo.months) && isKasu) ||
-      (katikatiMonthsArr.includes(cardInfo.months) && isStripPaper);
+    (!months.includes(cardInfo.month) && isKasu) ||
+      (katikatiMonthsArr.includes(cardInfo.month) && isStripPaper);
   });
 }
 
-function selectCardsForMonths(months: Months[]): CardInfo[] {
-  return CARDINFOARR.filter((cardInfo) => !months.includes(cardInfo.months));
+function selectCardsForMonths(months: CardMonths[]): CardInfo[] {
+  return CARDINFOARR.filter((cardInfo) => !months.includes(cardInfo.month));
 }
 
-function selectCardsForPlants(plants: Plants[]): CardInfo[] {
+function selectCardsForPlants(plants: CardPlants[]): CardInfo[] {
   return CARDINFOARR.filter((cardInfo) => !plants.includes(cardInfo.plant));
 }
 

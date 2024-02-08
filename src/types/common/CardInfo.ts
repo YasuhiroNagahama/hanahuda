@@ -1,13 +1,13 @@
 import { CardNames } from "../../types/common/CardNames";
 import { CardTypes } from "../../types/common/CardTypes";
-import { Months } from "../../types/common/Months";
-import { Plants } from "../../types/common/Plants";
+import { CardMonths } from "./CardMonths";
+import { CardPlants } from "./CardPlants";
 
 type CardInfo = {
-  cardName: CardNames;
-  cardType: CardTypes;
-  months: Months;
-  plant: Plants;
+  name: CardNames;
+  type: CardTypes;
+  month: CardMonths;
+  plant: CardPlants;
 };
 
 export { CardInfo };

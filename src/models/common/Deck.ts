@@ -1,7 +1,7 @@
+import { Card } from "./Card";
+import { PointsCalculator } from "../../interfaces/common/PointsCalculator";
 import { GameTypes } from "../../types/common/GameTypes";
 import { CardInfo } from "../../types/common/CardInfo";
-import { Card } from "./Card";
-import { PointsCalculator } from "./PointsCalculator";
 import { getPointsCalculator } from "../../utils/utils";
 import { hasCardPointsGame } from "../../utils/utils";
 import { selectCardsForGame } from "../../utils/utils";
@@ -9,74 +9,67 @@ import { selectCardsForGame } from "../../utils/utils";
 class Deck {
   private readonly _gameType: GameTypes;
   private readonly _pointsCalculator: PointsCalculator | null;
-  private _cards: Card[] = [];
+  private readonly _deck: Card[] = [];
 
   constructor(gameType: GameTypes) {
     this._gameType = gameType;
     this._pointsCalculator = hasCardPointsGame(this._gameType)
       ? getPointsCalculator(this._gameType)
       : null;
-    this._cards = this.createDeck(selectCardsForGame(this._gameType));
+    this._deck = this.createDeck(selectCardsForGame(this._gameType));
   }
 
   private createDeck(cardsInfo: CardInfo[]): Card[] {
-    const cards: Card[] = [];
-
     if (this._pointsCalculator === null) {
-      cardsInfo.forEach((cardInfo: CardInfo) => {
-        cards.push(
-          new Card(
-            cardInfo.cardName,
-            cardInfo.cardType,
-            cardInfo.months,
-            cardInfo.plant
-          )
-        );
-      });
-    } else {
-      cardsInfo.forEach((cardInfo: CardInfo) => {
-        cards.push(
-          new Card(
-            cardInfo.cardName,
-            cardInfo.cardType,
-            cardInfo.months,
-            cardInfo.plant,
-            this._pointsCalculator?.getCardPoint(
-              cardInfo.cardName,
-              cardInfo.cardType
-            )
-          )
+      return cardsInfo.map((cardInfo: CardInfo) => {
+        return new Card(
+          cardInfo.name,
+          cardInfo.type,
+          cardInfo.month,
+          cardInfo.plant
         );
       });
     }
 
-    return cards;
+    return cardsInfo.map((cardInfo: CardInfo) => {
+      const points = this._pointsCalculator?.getCardPoint(
+        cardInfo.name,
+        cardInfo.type
+      );
+      return new Card(
+        cardInfo.name,
+        cardInfo.type,
+        cardInfo.month,
+        cardInfo.plant,
+        points
+      );
+    });
   }
 
   public resetDeck(): void {
-    this._cards = [];
+    this._deck.length = 0;
   }
 
   public shuffle(): void {
-    for (let i: number = this._cards.length - 1; i >= 0; i -= 1) {
+    for (let i: number = this._deck.length - 1; i >= 0; i -= 1) {
       const j: number = Math.floor(Math.random() * (i + 1));
-      [this._cards[i], this._cards[j]] = [this._cards[j], this._cards[i]];
+      [this._deck[i], this._deck[j]] = [this._deck[j], this._deck[i]];
     }
   }
 
   public isEmpty(): boolean {
-    return this._cards.length === 0;
+    return this._deck.length === 0;
   }
 
   public drawCard(): Card {
     if (this.isEmpty()) {
       throw new Error("The deck is empty.");
     }
-    return this._cards.pop()!;
+    return this._deck.pop()!;
   }
 
   get remainingCardsCount(): number {
-    return this._cards.length;
+    return this._deck.length;
   }
 
   get gameType(): GameTypes {
@@ -88,7 +81,7 @@ class Deck {
   }
 
   get deck(): Card[] {
-    return this._cards;
+    return this._deck;
   }
 }
 

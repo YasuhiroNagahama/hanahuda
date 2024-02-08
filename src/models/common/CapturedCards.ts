@@ -1,29 +1,33 @@
 import { Card } from "./Card";
 
 class CapturedCards {
-  private _cards: Card[] = [];
+  private readonly _capturedCards: Card[] = [];
 
   public addCard(card: Card): void {
-    this._cards.push(card);
+    this._capturedCards.push(card);
   }
 
   public resetCards(): void {
-    this._cards = [];
+    this._capturedCards.length = 0;
+  }
+
+  public isEmpty(): boolean {
+    return this._capturedCards.length === 0;
   }
 
   get totalPoints(): number {
-    return this._cards.reduce(
-      (totalPoints, card) => totalPoints + card.points,
+    return this._capturedCards.reduce(
+      (totalPoints, capturedCard) => totalPoints + capturedCard.points,
       0
     );
   }
 
   get remainingCardsCount(): number {
-    return this._cards.length;
+    return this._capturedCards.length;
   }
 
-  get cards(): Card[] {
-    return this._cards;
+  get capturedCards(): Card[] {
+    return this._capturedCards;
   }
 }
 

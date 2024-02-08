@@ -1,4 +1,4 @@
-enum Months {
+enum CardMonths {
   January = 1,
   February = 2,
   March = 3,
@@ -13,4 +13,4 @@ enum Months {
   December = 12,
 }
 
-export { Months };
+export { CardMonths };

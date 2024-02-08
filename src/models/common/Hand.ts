@@ -1,22 +1,26 @@
 import { Card } from "./Card";
 
 class Hand {
-  private _cards: Card[] = [];
+  private readonly _hand: Card[] = [];
 
   public addCard(card: Card): void {
-    this.cards.push(card);
+    this._hand.push(card);
   }
 
   public resetCards(): void {
-    this._cards = [];
+    this._hand.length = 0;
+  }
+
+  public isEmpty(): boolean {
+    return this._hand.length === 0;
   }
 
   get remainingCardsCount(): number {
-    return this.cards.length;
+    return this._hand.length;
   }
 
-  get cards(): Card[] {
-    return this._cards;
+  get hand(): Card[] {
+    return this._hand;
   }
 }
 

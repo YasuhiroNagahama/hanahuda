@@ -1,4 +1,4 @@
-enum Plants {
+enum CardPlants {
   松 = "松",
   梅 = "梅",
   桜 = "桜",
@@ -13,4 +13,4 @@ enum Plants {
   桐 = "桐",
 }
 
-export { Plants };
+export { CardPlants };
