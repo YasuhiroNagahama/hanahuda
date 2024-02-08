@@ -282,7 +282,7 @@ const CARDINFOARR: CardInfo[] = [
     plant: Plants.桐,
   },
   {
-    cardName: CardNames.桐,
+    cardName: CardNames.桐色違い,
     cardType: CardTypes.カス,
     months: Months.December,
     plant: Plants.桐,
