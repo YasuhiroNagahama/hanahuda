@@ -22,16 +22,33 @@ class Deck {
   private createDeck(cardsInfo: CardInfo[]): Card[] {
     const cards: Card[] = [];
 
-    cardsInfo.forEach((cardInfo: CardInfo) => {
-      cards.push(
-        new Card(
-          cardInfo.cardName,
-          cardInfo.cardType,
-          cardInfo.months,
-          cardInfo.plant
-        )
-      );
-    });
+    if (this._pointsCalculator === null) {
+      cardsInfo.forEach((cardInfo: CardInfo) => {
+        cards.push(
+          new Card(
+            cardInfo.cardName,
+            cardInfo.cardType,
+            cardInfo.months,
+            cardInfo.plant
+          )
+        );
+      });
+    } else {
+      cardsInfo.forEach((cardInfo: CardInfo) => {
+        cards.push(
+          new Card(
+            cardInfo.cardName,
+            cardInfo.cardType,
+            cardInfo.months,
+            cardInfo.plant,
+            this._pointsCalculator?.getCardPoint(
+              cardInfo.cardName,
+              cardInfo.cardType
+            )
+          )
+        );
+      });
+    }
 
     return cards;
   }
