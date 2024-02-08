@@ -1,13 +1,13 @@
-import { CapturedCards } from "./CapturedCards";
 import { Card } from "./Card";
 import { Hand } from "./Hand";
+import { CapturedCards } from "./CapturedCards";
 import { PlayerTypes } from "../../types/common/PlayerTypes";
 
 class Player {
   private readonly _playerName: string;
   private readonly _playerType: PlayerTypes;
-  private _hand: Hand;
-  private _capturedCards: CapturedCards;
+  private readonly _hand: Hand;
+  private readonly _capturedCards: CapturedCards;
 
   constructor(playerName: string, playerType: PlayerTypes) {
     this._playerName = playerName;
@@ -24,7 +24,7 @@ class Player {
     this._capturedCards.addCard(card);
   }
 
-  public resetCards(): void {
+  public resetHand(): void {
     this._hand.resetCards();
   }
 

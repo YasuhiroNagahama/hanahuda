@@ -1,13 +1,13 @@
-import { GameTypes } from "../../types/common/GameTypes";
 import { Player } from "./Player";
 import { Deck } from "./Deck";
 import { FieldCards } from "./FieldCards";
+import { GameTypes } from "../../types/common/GameTypes";
 
 class Table {
   private readonly _gameType: GameTypes;
-  private _players: Player[] = [];
-  private _deck: Deck;
-  private _fieldCards: FieldCards = new FieldCards();
+  private readonly _players: Player[] = [];
+  private readonly _deck: Deck;
+  private readonly _fieldCards: FieldCards = new FieldCards();
 
   constructor(gameType: GameTypes) {
     this._gameType = gameType;

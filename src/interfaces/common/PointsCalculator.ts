@@ -2,7 +2,7 @@ import { CardNames } from "../../types/common/CardNames";
 import { CardTypes } from "../../types/common/CardTypes";
 
 interface PointsCalculator {
-  getCardPoint(cardName: CardNames, cardType: CardTypes): number;
+  getCardPoint(name: CardNames, type: CardTypes): number;
 }
 
 export { PointsCalculator };
