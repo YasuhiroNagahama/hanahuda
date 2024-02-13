@@ -16,19 +16,19 @@ class Player {
     this._capturedCards = new CapturedCards();
   }
 
-  public addCard(card: Card): void {
+  protected addCard(card: Card): void {
     this._hand.addCard(card);
   }
 
-  public addCapturedCard(card: Card): void {
+  protected addCapturedCard(card: Card): void {
     this._capturedCards.addCard(card);
   }
 
-  public resetHand(): void {
+  protected resetHand(): void {
     this._hand.resetCards();
   }
 
-  public resetCapturedCards(): void {
+  protected resetCapturedCards(): void {
     this._capturedCards.resetCards();
   }
 

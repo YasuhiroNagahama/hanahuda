@@ -1,4 +1,6 @@
 import { Card } from "./Card";
+import { CardNames } from "../../types/common/CardNames";
+import { CardTypes } from "../../types/common/CardTypes";
 
 class CapturedCards {
   private readonly _capturedCards: Card[] = [];
@@ -13,6 +15,25 @@ class CapturedCards {
 
   public isEmpty(): boolean {
     return this._capturedCards.length === 0;
+  }
+
+  protected countCardsByType(type: CardTypes): number {
+    return this.capturedCards.filter(
+      (capturedCard) => capturedCard.type === type
+    ).length;
+  }
+
+  protected countCardsByName(name: CardNames): number {
+    return this.capturedCards.filter(
+      (capturedCard) => capturedCard.name === name
+    ).length;
+  }
+
+  protected includeCardsByName(name: CardNames): boolean {
+    return (
+      this.capturedCards.filter((capturedCard) => capturedCard.name === name)
+        .length === 1
+    );
   }
 
   get totalPoints(): number {
