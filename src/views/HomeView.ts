@@ -64,16 +64,9 @@ export class HomeView {
                 <button id="poka" class="game-type-button dotgothic16-regular">ポカ</button>
               </div>
             </div>
-              <div class="game-start-panel-wrapper">
-                <div class="game-start-buttons-wrapper">
-                  <div class="game-start-button-wrapper game-rules-button-wrapper">
-                    <button class="game-start-button dotgothic16-regular">ルール設定</button>
-                  </div>
-                  <div class="game-start-button-wrapper game-setting-start-button-wrapper">
-                    <button class="game-start-button dotgothic16-regular">ゲーム開始</button>
-                  </div>
+                <div id="startButton" class="game-start-button-wrapper">
+                  <button class="game-start-button dotgothic16-regular">ゲーム開始</button>
                 </div>
-              </div>
             </main>
     `;
   }

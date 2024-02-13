@@ -1,4 +1,5 @@
 import { GAMETYPEIDSMAP } from "../../constants/common/GameTypeIds";
+import { GAMECONTROLLERSMAP } from "../../constants/common/GameControllers";
 import { Controller } from "../../interfaces/common/Controller";
 import { GameTypes } from "../../types/common/GameTypes";
 import { HomeView } from "../../views/HomeView";
@@ -13,15 +14,53 @@ class HomeController {
 
   public initializeControllerMethods(): void {
     this.addHomeView();
-    this.clickMenuButton();
-    this.clickGameTypeButton();
+    this.handleMenuButton();
+    this.handleGameTypeButton();
+    this.handleStartButton();
   }
 
-  public addHomeView(): void {
+  private addHomeView(): void {
     HomeView.addView();
   }
 
-  public clickGameTypeButton(): void {
+  private isNoneGameType(): boolean {
+    return this.gameType === GameTypes.None;
+  }
+
+  private removeActiveClass(elements: NodeListOf<Element>): void {
+    elements.forEach((element) => {
+      element.classList.remove("is-active");
+    });
+  }
+
+  private handleStartButton(): void {
+    const startButton: HTMLElement = document.getElementById("startButton")!;
+    startButton.addEventListener("click", () => {
+      if (!this.isNoneGameType()) {
+        if (GAMECONTROLLERSMAP.has(this.gameType)) {
+          this.gameController = GAMECONTROLLERSMAP.get(this.gameType)!;
+        } else {
+          alert("選択されたゲームは現在開発中です。");
+        }
+      } else {
+        alert("ゲームを選択してください！");
+      }
+    });
+  }
+
+  private handleMenuButton(): void {
+    const menuButton: HTMLElement = document.querySelector(
+      ".hamburger-menu-bars-wrapper"
+    )!;
+    menuButton.addEventListener("click", () => {
+      const menu: HTMLElement = document.querySelector(
+        ".hamburger-menu-buttons-wrapper"
+      )!;
+      menu.classList.toggle("is-active");
+    });
+  }
+
+  private handleGameTypeButton(): void {
     const gameTypeButtons: NodeListOf<Element> =
       document.querySelectorAll(".game-type-button")!;
 
@@ -32,12 +71,15 @@ class HomeController {
         if (GAMETYPEIDSMAP.has(gameKey)) {
           // gameTypeが同じ場合の制御
           this.gameType = GAMETYPEIDSMAP.get(gameKey)!;
+
+          this.removeActiveClass(gameTypeButtons);
+          button.classList.add("is-active");
         }
       });
     });
   }
 
-  public clickVolumeButton(): void {
+  private handleVolumeButton(): void {
     const volumeButton: HTMLElement = document.getElementById("volumeButton")!;
 
     volumeButton.addEventListener("click", () => {
@@ -45,24 +87,12 @@ class HomeController {
     });
   }
 
-  public clickSettingButton(): void {
+  private handleSettingButton(): void {
     const settingButton: HTMLElement =
       document.getElementById("settingButton")!;
 
     settingButton.addEventListener("click", () => {
       console.log("setting button");
-    });
-  }
-
-  public clickMenuButton(): void {
-    const menuButton: HTMLElement = document.querySelector(
-      ".hamburger-menu-bars-wrapper"
-    )!;
-    menuButton.addEventListener("click", () => {
-      const menu: HTMLElement = document.querySelector(
-        ".hamburger-menu-buttons-wrapper"
-      )!;
-      menu.classList.toggle("is-active");
     });
   }
 }
