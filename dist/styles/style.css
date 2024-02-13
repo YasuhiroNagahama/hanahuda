@@ -14,11 +14,7 @@
   --z-index-150: 150;
 }
 
-.dotgothic16-regular {
-  font-family: "DotGothic16", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+/* home page */
 
 .home-page-wrapper {
   background-image: url("../assets/images/hanahuda-background-image.jpg");
@@ -47,6 +43,11 @@ main {
   font-size: 64px;
   font-weight: bold;
   margin: 0 auto;
+}
+
+.volume-button-wrapper {
+  cursor: pointer;
+  padding-right: 16px;
 }
 
 .hamburger-menu-bars-wrapper {
@@ -162,4 +163,19 @@ main {
   color: var(--white-color);
   font-size: 24px;
   font-weight: bold;
+}
+
+/* font awesome */
+
+.fa-volume-high {
+  color: var(--sub-color);
+  font-size: 40px;
+}
+
+/* google font */
+
+.dotgothic16-regular {
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

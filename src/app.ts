@@ -1,3 +1,5 @@
-import { Controller } from "./controllers/Controller";
+import { HomeController } from "./controllers/home/Controller";
 
-Controller.initializeControllerMethods();
+const controller: HomeController = new HomeController();
+
+controller.initializeControllerMethods();

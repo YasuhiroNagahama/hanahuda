@@ -1,5 +1,4 @@
 import { Player } from "../common/Player";
-import { KoikoiCapturedCards } from "./KoikoiCaputuredCards";
 import { PlayerTypes } from "../../types/common/PlayerTypes";
 import { CombinationTypes } from "../../types/koikoi/CombinationTypes";
 
