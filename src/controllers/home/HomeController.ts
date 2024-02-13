@@ -78,23 +78,6 @@ class HomeController {
       });
     });
   }
-
-  private handleVolumeButton(): void {
-    const volumeButton: HTMLElement = document.getElementById("volumeButton")!;
-
-    volumeButton.addEventListener("click", () => {
-      console.log("volume button");
-    });
-  }
-
-  private handleSettingButton(): void {
-    const settingButton: HTMLElement =
-      document.getElementById("settingButton")!;
-
-    settingButton.addEventListener("click", () => {
-      console.log("setting button");
-    });
-  }
 }
 
 export { HomeController };
