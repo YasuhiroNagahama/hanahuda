@@ -2,7 +2,7 @@ import { Controller } from "../../interfaces/common/Controller";
 import { KoikoiController } from "../../controllers/koikoi/KoikoiController";
 import { GameTypes } from "../../types/common/GameTypes";
 
-const GAMETYPEIDSMAP: Map<GameTypes, Controller> = new Map<
+const GAMECONTROLLERSMAP: Map<GameTypes, Controller> = new Map<
   GameTypes,
   Controller
 >([
@@ -20,4 +20,4 @@ const GAMETYPEIDSMAP: Map<GameTypes, Controller> = new Map<
   // [GameTypes.かちかち, new SomeOtherController()],
 ]);
 
-export { GAMETYPEIDSMAP };
+export { GAMECONTROLLERSMAP };
