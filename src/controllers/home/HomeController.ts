@@ -1,6 +1,6 @@
 import { GAMETYPEIDSMAP } from "../../constants/common/GameTypeIds";
 import { GAMECONTROLLERSMAP } from "../../constants/common/GameControllers";
-import { Controller } from "../../interfaces/common/Controller";
+import { GameController } from "../../interfaces/common/GameController";
 import { GameTypes } from "../../types/common/GameTypes";
 import { HomeView } from "../../views/HomeView";
 
@@ -20,7 +20,7 @@ class HomeController {
     // 開発用
     this.removeHomeView();
 
-    const gameController: Controller = GAMECONTROLLERSMAP.get(
+    const gameController: GameController = GAMECONTROLLERSMAP.get(
       GameTypes.こいこい
     )!;
     gameController.initializeControllerMethods();
@@ -51,7 +51,7 @@ class HomeController {
         if (GAMECONTROLLERSMAP.has(this.gameType)) {
           this.removeHomeView();
 
-          const gameController: Controller = GAMECONTROLLERSMAP.get(
+          const gameController: GameController = GAMECONTROLLERSMAP.get(
             this.gameType
           )!;
           gameController.initializeControllerMethods();
