@@ -6,21 +6,32 @@ import { HomeView } from "../../views/HomeView";
 
 class HomeController {
   private gameType: GameTypes;
-  private gameController: Controller | null = null;
 
   constructor() {
     this.gameType = GameTypes.None;
   }
 
   public initializeControllerMethods(): void {
-    this.addHomeView();
-    this.handleMenuButton();
-    this.handleGameTypeButton();
-    this.handleStartButton();
+    // this.addHomeView();
+    // this.handleMenuButton();
+    // this.handleGameTypeButton();
+    // this.handleStartButton();
+
+    // 開発用
+    this.removeHomeView();
+
+    const gameController: Controller = GAMECONTROLLERSMAP.get(
+      GameTypes.こいこい
+    )!;
+    gameController.initializeControllerMethods();
   }
 
   private addHomeView(): void {
     HomeView.addView();
+  }
+
+  private removeHomeView(): void {
+    HomeView.removeView();
   }
 
   private isNoneGameType(): boolean {
@@ -38,7 +49,12 @@ class HomeController {
     startButton.addEventListener("click", () => {
       if (!this.isNoneGameType()) {
         if (GAMECONTROLLERSMAP.has(this.gameType)) {
-          this.gameController = GAMECONTROLLERSMAP.get(this.gameType)!;
+          this.removeHomeView();
+
+          const gameController: Controller = GAMECONTROLLERSMAP.get(
+            this.gameType
+          )!;
+          gameController.initializeControllerMethods();
         } else {
           alert("選択されたゲームは現在開発中です。");
         }

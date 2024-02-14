@@ -4,7 +4,6 @@ export class HomeView {
   public static addView(): void {
     HOMEPAGE!.innerHTML = `
             <header>
-            <h1 class="header-text dotgothic16-regular">花札</h1>
               <div class="hamburger-menu-bars-wrapper">
                 <span class="hamburger-menu-bar"></span>
                 <span class="hamburger-menu-bar"></span>
@@ -69,5 +68,24 @@ export class HomeView {
                 </div>
             </main>
     `;
+  }
+
+  public static removeView(): void {
+    if (HOMEPAGE) {
+      HomeView.removeClass();
+      HOMEPAGE.innerHTML = ``;
+    }
+  }
+
+  public static addClass(): void {
+    if (HOMEPAGE) {
+      HOMEPAGE.classList.add("home-page-wrapper");
+    }
+  }
+
+  public static removeClass(): void {
+    if (HOMEPAGE) {
+      HOMEPAGE.classList.remove("home-page-wrapper");
+    }
   }
 }

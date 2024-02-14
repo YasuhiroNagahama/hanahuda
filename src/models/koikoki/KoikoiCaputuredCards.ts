@@ -86,13 +86,13 @@ class KoikoiCapturedCards extends CapturedCards {
     );
   }
 
-  //
+  // 以下ゲッター
 
   get taneCardCount(): number {
     return this.countCardsByType(CardTypes.種札);
   }
 
-  get tannCardCount(): number {
+  get tanCardCount(): number {
     return this.countCardsByType(CardTypes.短冊);
   }
 
