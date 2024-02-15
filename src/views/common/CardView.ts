@@ -1,13 +1,12 @@
+import { CARD_IMAGES_MAP } from "../../constants/common/CardImages";
+import { Card } from "../../models/common/Card";
+
 class CardView {
-  private readonly _positionX: number;
-  private readonly _positionY: number;
-  private readonly _image: string;
+  private readonly imageStr: string;
   private readonly isFaceUp: boolean = false;
 
-  constructor(positionX: number, positionY: number, image: string) {
-    this._positionX = positionX;
-    this._positionY = positionY;
-    this._image = image;
+  constructor(card: Card) {
+    this.imageStr = CARD_IMAGES_MAP.get(card.name)!
   }
 }
 
