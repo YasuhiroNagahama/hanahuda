@@ -230,11 +230,21 @@ main {
   border-radius: 40px;
 }
 
-/* カードの画像用のcss */
-.card-image {
+.card-img-wrapper {
+  cursor: pointer;
   height: 120px;
   width: 80px;
+}
+
+/* カードの画像用のcss */
+.card-img {
   object-fit: contain;
+}
+
+.deck-wrapper {
+  width: 80px;
+  height: 120px;
+  background-color: var(--dark-color);
 }
 /* font awesome */
 

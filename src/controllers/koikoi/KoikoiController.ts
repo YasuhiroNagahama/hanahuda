@@ -1,4 +1,6 @@
+import { GAMEPAGE } from "../../config";
 import { GameController } from "../../interfaces/common/GameController";
+import { KoikoiPlayer } from "../../models/koikoki/KoikoiPlayer";
 import { KoikoiTable } from "../../models/koikoki/KoikoiTable";
 import { GameRound } from "../../types/koikoi/GameRound";
 import { GameView } from "../../views/common/GameView";
@@ -8,9 +10,11 @@ class KoikoiController implements GameController {
 
   public initializeControllerMethods(): void {
     this.addGameView();
-    this.addSettingView();
-    this.handleMenuButton();
-    this.handleDecideSettingButton();
+    // this.addSettingView();
+    // this.handleMenuButton();
+    // this.handleDecideSettingButton();
+
+    const players: KoikoiPlayer[] = this._koikoiTable.players;
   }
 
   private addGameView(): void {

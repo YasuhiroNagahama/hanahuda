@@ -12,10 +12,17 @@ class HomeController {
   }
 
   public initializeControllerMethods(): void {
-    this.addHomeView();
-    this.handleMenuButton();
-    this.handleGameTypeButton();
-    this.handleStartButton();
+    // this.addHomeView();
+    // this.handleMenuButton();
+    // this.handleGameTypeButton();
+    // this.handleStartButton();
+
+    // 開発用
+    this.removeHomeView();
+    const gameController: GameController = GAME_CONTROLLERS_MAP.get(
+      GameTypes.こいこい
+    )!;
+    gameController.initializeControllerMethods();
   }
 
   private addHomeView(): void {
