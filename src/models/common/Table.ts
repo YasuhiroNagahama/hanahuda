@@ -2,10 +2,11 @@ import { Deck } from "./Deck";
 import { Player } from "./Player";
 import { FieldCards } from "./FieldCards";
 import { GameTypes } from "../../types/common/GameTypes";
+import { CapturedCards } from "./CapturedCards";
 
-class Table {
+class Table<T extends Player<CapturedCards>> {
   private readonly _gameType: GameTypes;
-  private readonly _players: Player[] = [];
+  private readonly _players: T[] = [];
   private readonly _deck: Deck;
   private readonly _fieldCards: FieldCards = new FieldCards();
   private _playerNumber: number;
@@ -22,7 +23,7 @@ class Table {
     return this._gameType;
   }
 
-  get players(): Player[] {
+  get players(): T[] {
     return this._players;
   }
 
