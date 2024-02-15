@@ -230,6 +230,12 @@ main {
   border-radius: 40px;
 }
 
+/* カードの画像用のcss */
+.card-image {
+  height: 120px;
+  width: 80px;
+  object-fit: contain;
+}
 /* font awesome */
 
 .fa-volume-high {

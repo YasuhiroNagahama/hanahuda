@@ -83,10 +83,18 @@ export class GameView {
   }
 
   public static removeSettingView(): void {
-    const settingModal: HTMLDivElement = document.querySelector(".settings-modal-wrapper") as HTMLDivElement;
+    const settingModal: HTMLDivElement = document.querySelector(
+      ".settings-modal-wrapper"
+    ) as HTMLDivElement;
 
     settingModal.remove();
   }
+
+  // public static addImage(): void {
+  //   if (GAMEPAGE) {
+  //     GAMEPAGE.innerHTML += `<img src="../assets/images/hanahuda-1-1.jpg" alt="" class="card-image">`;
+  //   }
+  // }
 
   public static addClass(): void {
     if (GAMEPAGE) {
