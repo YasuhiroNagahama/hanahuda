@@ -1,6 +1,6 @@
 import { GameTypes } from "../../types/common/GameTypes";
 
-const GAMETYPEIDSMAP: Map<string, GameTypes> = new Map<string, GameTypes>([
+const GAME_TYPE_IDS_MAP: Map<string, GameTypes> = new Map<string, GameTypes>([
   ["koikoi", GameTypes.こいこい],
   ["roppyakken", GameTypes.六百間],
   ["hanaawase", GameTypes.花合わせ],
@@ -16,4 +16,4 @@ const GAMETYPEIDSMAP: Map<string, GameTypes> = new Map<string, GameTypes>([
   ["none", GameTypes.None],
 ]);
 
-export { GAMETYPEIDSMAP };
+export { GAME_TYPE_IDS_MAP };

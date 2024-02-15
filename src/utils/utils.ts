@@ -1,4 +1,4 @@
-import { CARDINFOARR } from "../constants/common/CardInfo";
+import { CARD_INFO_ARR } from "../constants/common/CardInfo";
 import { PointsCalculator } from "../interfaces/common/PointsCalculator";
 import { CommonPointsCalculator } from "../models/common/CommonPointCalculator";
 import { RoppyakkennPointCalculator } from "../models/roppyakkenn/RoppyakkennPointCalculator";
@@ -54,7 +54,7 @@ function selectCardsForGame(gameType: GameTypes): CardInfo[] {
         CardMonths.December,
       ]);
     default:
-      return CARDINFOARR;
+      return CARD_INFO_ARR;
   }
 }
 
@@ -64,7 +64,7 @@ function selectCardsForKatikati(months: CardMonths[]): CardInfo[] {
     CardMonths.April,
     CardMonths.October,
   ];
-  return CARDINFOARR.filter((cardInfo) => {
+  return CARD_INFO_ARR.filter((cardInfo) => {
     const isKasu: boolean = cardInfo.type === CardTypes.カス;
     const isStripPaper: boolean = cardInfo.type === CardTypes.短冊;
 
@@ -74,11 +74,11 @@ function selectCardsForKatikati(months: CardMonths[]): CardInfo[] {
 }
 
 function selectCardsForMonths(months: CardMonths[]): CardInfo[] {
-  return CARDINFOARR.filter((cardInfo) => !months.includes(cardInfo.month));
+  return CARD_INFO_ARR.filter((cardInfo) => !months.includes(cardInfo.month));
 }
 
 function selectCardsForPlants(plants: CardPlants[]): CardInfo[] {
-  return CARDINFOARR.filter((cardInfo) => !plants.includes(cardInfo.plant));
+  return CARD_INFO_ARR.filter((cardInfo) => !plants.includes(cardInfo.plant));
 }
 
 export { hasCardPointsGame, getPointsCalculator, selectCardsForGame };

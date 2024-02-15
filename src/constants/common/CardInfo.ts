@@ -4,7 +4,7 @@ import { CardTypes } from "../../types/common/CardTypes";
 import { CardMonths } from "../../types/common/CardMonths";
 import { CardPlants } from "../../types/common/CardPlants";
 
-const CARDINFOARR: CardInfo[] = [
+const CARD_INFO_ARR: CardInfo[] = [
   {
     name: CardNames.松,
     type: CardTypes.カス,
@@ -295,4 +295,4 @@ const CARDINFOARR: CardInfo[] = [
   },
 ];
 
-export { CARDINFOARR };
+export { CARD_INFO_ARR };

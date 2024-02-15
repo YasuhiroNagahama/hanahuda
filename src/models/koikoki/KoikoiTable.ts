@@ -1,7 +1,8 @@
-import { GameTypes } from "../../types/common/GameTypes";
+import { KoikoiPlayer } from "./KoikoiPlayer";
 import { Table } from "../common/Table";
+import { GameTypes } from "../../types/common/GameTypes";
 
-class KoikoiTable extends Table {
+class KoikoiTable extends Table<KoikoiPlayer> {
   private _doublePointsRule: boolean = false;
   private _noRoleRule: boolean = false;
   private _optionRoleRule: boolean = false;

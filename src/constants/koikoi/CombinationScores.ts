@@ -1,6 +1,6 @@
 import { CombinationTypes } from "../../types/koikoi/CombinationTypes";
 
-const COMBINATIONSCORES: Map<CombinationTypes, number> = new Map<
+const COMBINATION_SCORES: Map<CombinationTypes, number> = new Map<
   CombinationTypes,
   number
 >([
@@ -18,4 +18,4 @@ const COMBINATIONSCORES: Map<CombinationTypes, number> = new Map<
   [CombinationTypes.かす, 1],
 ]);
 
-export { COMBINATIONSCORES };
+export { COMBINATION_SCORES };

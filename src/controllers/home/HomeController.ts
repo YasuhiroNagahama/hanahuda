@@ -1,6 +1,6 @@
-import { GAMETYPEIDSMAP } from "../../constants/common/GameTypeIds";
-import { GAMECONTROLLERSMAP } from "../../constants/common/GameControllers";
-import { Controller } from "../../interfaces/common/Controller";
+import { GAME_TYPE_IDS_MAP } from "../../constants/common/GameTypeIds";
+import { GAME_CONTROLLERS_MAP } from "../../constants/common/GameControllers";
+import { GameController } from "../../interfaces/common/GameController";
 import { GameTypes } from "../../types/common/GameTypes";
 import { HomeView } from "../../views/HomeView";
 
@@ -19,8 +19,7 @@ class HomeController {
 
     // 開発用
     this.removeHomeView();
-
-    const gameController: Controller = GAMECONTROLLERSMAP.get(
+    const gameController: GameController = GAME_CONTROLLERS_MAP.get(
       GameTypes.こいこい
     )!;
     gameController.initializeControllerMethods();
@@ -48,10 +47,10 @@ class HomeController {
     const startButton: HTMLElement = document.getElementById("startButton")!;
     startButton.addEventListener("click", () => {
       if (!this.isNoneGameType()) {
-        if (GAMECONTROLLERSMAP.has(this.gameType)) {
+        if (GAME_CONTROLLERS_MAP.has(this.gameType)) {
           this.removeHomeView();
 
-          const gameController: Controller = GAMECONTROLLERSMAP.get(
+          const gameController: GameController = GAME_CONTROLLERS_MAP.get(
             this.gameType
           )!;
           gameController.initializeControllerMethods();
@@ -84,9 +83,9 @@ class HomeController {
       button.addEventListener("click", () => {
         const gameKey: string = button.id;
 
-        if (GAMETYPEIDSMAP.has(gameKey)) {
+        if (GAME_TYPE_IDS_MAP.has(gameKey)) {
           // gameTypeが同じ場合の制御
-          this.gameType = GAMETYPEIDSMAP.get(gameKey)!;
+          this.gameType = GAME_TYPE_IDS_MAP.get(gameKey)!;
 
           this.removeActiveClass(gameTypeButtons);
           button.classList.add("is-active");

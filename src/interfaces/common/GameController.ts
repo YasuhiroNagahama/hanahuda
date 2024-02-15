@@ -1,8 +1,8 @@
-interface Controller {
+interface GameController {
   initializeControllerMethods(): void
   // start(): void
   // settlement(): void
   // prepare(): void
 }
 
-export { Controller };
+export { GameController };
