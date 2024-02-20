@@ -3,7 +3,7 @@ import { GAMEPAGE } from "../../config";
 export class GameView {
   public static addView(): void {
     this.addClass();
-    GAMEPAGE!.innerHTML = `
+    GAMEPAGE!.innerHTML += `
     <header>
     <div class="hamburger-menu-bars-wrapper">
       <span class="hamburger-menu-bar"></span>
@@ -27,7 +27,22 @@ export class GameView {
     <div id="volumeButton" class="volume-button-wrapper">
       <i class="fa-solid fa-volume-high"></i>
     </div>
-  </header>`;
+  </header>
+  <div id="botView" class='participant-wrapper bot-wrapper'>
+    <div class="participant-name-wrapper">
+      <p class="participant-name dotgothic16-regular">BOT</p>
+    </div>
+    <div id="capturedCards" class="participant-captured-cards-wrapper bot-captured-cards-wrapper"></div>
+  </div>
+  <div id="playerView" class='participant-wrapper player-wrapper'>
+    <div class="participant-name-wrapper">
+      <p class="participant-name dotgothic16-regular">PLAYER</p>
+    </div>
+    <div id="capturedCards" class="participant-captured-cards-wrapper player-captured-cards-wrapper"></div>
+  </div>
+  <div id="fieldCards" class="field-cards-wrapper"></div>
+  <div id="deck" class='deck-wrapper'></div>
+  `;
   }
 
   public static addSettingView(): void {
