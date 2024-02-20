@@ -236,16 +236,71 @@ main {
   width: 80px;
 }
 
-/* カードの画像用のcss */
+/* カードの画像用 */
 .card-img {
   object-fit: contain;
 }
 
+/* 参加者用 */
+
+.participant-wrapper {
+  position: absolute;
+}
+
+.participant-name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* BOT用 */
+.bot-wrapper {
+  top: 1%;
+  left: 30%;
+  transform: translate(-50%, -1%);
+}
+
+/* プレイヤー用 */
+.player-wrapper {
+  bottom: 1%;
+  left: 30%;
+  transform: translate(-50%, -1%);
+}
+
+/* デッキ用 */
 .deck-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 1%;
+  transform: translate(-1%, -50%);
   width: 80px;
   height: 120px;
   background-color: var(--dark-color);
 }
+
+/* 獲得札用 */
+.participant-captured-cards-wrapper {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--dark-color);
+}
+
+.bot-captured-cards-wrapper {
+  transform: translate(-10%, -1%);
+}
+
+/* フィールド用 */
+.field-cards-wrapper {
+  position: absolute;
+  width: 50%;
+  height: 240px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--dark-color);
+}
+
 /* font awesome */
 
 .fa-volume-high {
