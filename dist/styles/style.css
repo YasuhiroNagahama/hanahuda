@@ -230,12 +230,6 @@ main {
   border-radius: 40px;
 }
 
-.card-img-wrapper {
-  cursor: pointer;
-  height: 120px;
-  width: 80px;
-}
-
 /* カードの画像用 */
 .card-img {
   object-fit: contain;
@@ -245,25 +239,72 @@ main {
 
 .participant-wrapper {
   position: absolute;
+  left: 40%;
+  transform: translate(-20%, 0);
 }
 
 .participant-name {
-  text-align: center;
-  font-weight: bold;
-  font-size: 24px;
+  color: var(--white-color);
+  text-align: left;
+  font-size: 32px;
+}
+
+/*  */
+.participant-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+/* widthが60px、heightが90pxのカードを4枚*2枚の合計8枚含む */
+.participant-hand-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 240px;
+  height: 180px;
+  border: 2px solid var(--dark-color);
+}
+
+/* カード用 */
+
+.hand-card-img-wrapper {
+  cursor: pointer;
+  width: 60px;
+  height: 90px;
+}
+
+.hand-card-img-wrapper:hover {
+  transform: translate(4px, -4px);
+  transition: 0.2s;
+}
+
+.field-card-img-wrapper {
+  cursor: pointer;
+  width: 80px;
+  height: 120px;
+}
+
+.field-card-img-wrapper:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 
 /* BOT用 */
 .bot-wrapper {
   top: 1%;
-  left: 30%;
   transform: translate(-50%, -1%);
 }
 
 /* プレイヤー用 */
 .player-wrapper {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column-reverse;
   bottom: 1%;
-  left: 30%;
   transform: translate(-50%, -1%);
 }
 
@@ -279,19 +320,24 @@ main {
 }
 
 /* 獲得札用 */
-.participant-captured-cards-wrapper {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border: 2px solid var(--dark-color);
-}
 
-.bot-captured-cards-wrapper {
-  transform: translate(-10%, -1%);
+/* widthが40px、heightが60pxのカードを札の種類ごとに含む */
+.participant-captured-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 480px;
+  height: 180px;
+  border: 2px solid var(--dark-color);
 }
 
 /* フィールド用 */
 .field-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   position: absolute;
   width: 50%;
   height: 240px;

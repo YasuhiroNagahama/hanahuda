@@ -1,6 +1,11 @@
+import { GAMEPAGE } from "../../config";
+
 class DeckView {
-  get deckView(): string {
-    return `<div class="deck-wrapper"></div>`;
+
+  public addView(): void {
+    if(GAMEPAGE) {
+      GAMEPAGE.innerHTML += `<div class="deck-wrapper"></div>`
+    }
   }
 }
 

@@ -1,93 +1,57 @@
-import { GAMEPAGE } from "../../config";
 import { GameController } from "../../interfaces/common/GameController";
+import { Card } from "../../models/common/Card";
+import { Deck } from "../../models/common/Deck";
+import { FieldCards } from "../../models/common/FieldCards";
 import { KoikoiPlayer } from "../../models/koikoki/KoikoiPlayer";
 import { KoikoiTable } from "../../models/koikoki/KoikoiTable";
-import { GameRound } from "../../types/koikoi/GameRound";
-import { GameView } from "../../views/common/GameView";
+import { delay } from "../../utils/utils";
+import { FieldView } from "../../views/koikoi/FieldView";
+import { PlayerView } from "../../views/koikoi/PlayerView";
+import { TableView } from "../../views/koikoi/TableView";
+import { KoikoiSettingController } from "./KoikoiSettingController";
 
 class KoikoiController implements GameController {
   private readonly _koikoiTable: KoikoiTable = new KoikoiTable();
+  private readonly _koikoiSettingController: KoikoiSettingController;
+  private readonly _koikoiTableView: TableView;
+  private readonly _koikoiPlayersView: PlayerView[];
 
-  public initializeControllerMethods(): void {
-    this.addGameView();
-    // this.addSettingView();
-    // this.handleMenuButton();
-    // this.handleDecideSettingButton();
-
-    const players: KoikoiPlayer[] = this._koikoiTable.players;
+  constructor() {
+    this._koikoiSettingController = new KoikoiSettingController(
+      this._koikoiTable
+    );
+    this._koikoiTableView = new TableView(this._koikoiTable);
+    this._koikoiPlayersView = this._koikoiTableView.playerViews;
   }
 
-  private addGameView(): void {
-    GameView.addView();
+  async initializeControllerMethods(): Promise<void> {
+    // this._koikoiSettingController.runMethods()
+    this._koikoiTableView.addTableView();
+    await this.dealInitialCards();
   }
 
-  private addSettingView(): void {
-    GameView.addSettingView();
-  }
+  private async dealInitialCards(): Promise<void> {
+    const deck: Deck = this._koikoiTable.deck;
+    deck.shuffle();
 
-  private removeSettingView(): void {
-    GameView.removeSettingView();
-  }
+    const fieldCards: FieldCards = this._koikoiTable.fieldCards;
+    const fieldView: FieldView = this._koikoiTableView.fieldView;
 
-  private setGameRound(): void {
-    const checkedInput: HTMLInputElement = document.querySelector(
-      ".game-round-input:checked"
-    ) as HTMLInputElement;
-    const roundStr: string = checkedInput.value;
+    for (let i: number = 0; i < 8; i++) {
+      for (const playerView of this._koikoiPlayersView) {
+        await delay(200);
+        const player = playerView.playerModel;
+        const card = deck.drawCard();
+        player.addCard(card);
+        playerView.addCardView(card, player.playerType);
+      }
 
-    if (roundStr === "3") this._koikoiTable.round = GameRound.Three;
-    else if (roundStr === "5") this._koikoiTable.round = GameRound.Five;
-    else if (roundStr === "12") this._koikoiTable.round = GameRound.Twelve;
-  }
+      await delay(200);
+      const card: Card = deck.drawCard();
 
-  private setDoublePointsRule(): void {
-    const inputElement: HTMLInputElement = document.getElementById(
-      "doublePointsRule"
-    ) as HTMLInputElement;
-
-    if (inputElement.checked) this._koikoiTable.doublePointsRule = true;
-  }
-
-  private setNoRoleRule(): void {
-    const inputElement: HTMLInputElement = document.getElementById(
-      "noRoleRule"
-    ) as HTMLInputElement;
-
-    if (inputElement.checked) this._koikoiTable.noRoleRule = true;
-  }
-
-  private setOptionRoleRule(): void {
-    const inputElement: HTMLInputElement = document.getElementById(
-      "optionRoleRule"
-    ) as HTMLInputElement;
-
-    if (inputElement.checked) this._koikoiTable.optionRoleRule = true;
-  }
-
-  private handleDecideSettingButton(): void {
-    const decideSettingButton: HTMLDivElement = document.getElementById(
-      "decideButton"
-    ) as HTMLDivElement;
-
-    decideSettingButton.addEventListener("click", () => {
-      this.setGameRound();
-      this.setDoublePointsRule();
-      this.setNoRoleRule();
-      this.setOptionRoleRule();
-      this.removeSettingView();
-    });
-  }
-
-  private handleMenuButton(): void {
-    const menuButton: HTMLElement = document.querySelector(
-      ".hamburger-menu-bars-wrapper"
-    )!;
-    menuButton.addEventListener("click", () => {
-      const menu: HTMLElement = document.querySelector(
-        ".hamburger-menu-buttons-wrapper"
-      )!;
-      menu.classList.toggle("is-active");
-    });
+      fieldCards.addCard(card);
+      fieldView.addCardView(card.name);
+    }
   }
 }
 

@@ -6,13 +6,13 @@ import { CardPlants } from "../../types/common/CardPlants";
 
 const CARD_INFO_ARR: CardInfo[] = [
   {
-    name: CardNames.松,
+    name: CardNames.松1,
     type: CardTypes.カス,
     month: CardMonths.January,
     plant: CardPlants.松,
   },
   {
-    name: CardNames.松,
+    name: CardNames.松2,
     type: CardTypes.カス,
     month: CardMonths.January,
     plant: CardPlants.松,
@@ -30,13 +30,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.松,
   },
   {
-    name: CardNames.梅,
+    name: CardNames.梅1,
     type: CardTypes.カス,
     month: CardMonths.February,
     plant: CardPlants.梅,
   },
   {
-    name: CardNames.梅,
+    name: CardNames.梅2,
     type: CardTypes.カス,
     month: CardMonths.February,
     plant: CardPlants.梅,
@@ -54,13 +54,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.梅,
   },
   {
-    name: CardNames.桜,
+    name: CardNames.桜1,
     type: CardTypes.カス,
     month: CardMonths.March,
     plant: CardPlants.桜,
   },
   {
-    name: CardNames.桜,
+    name: CardNames.桜2,
     type: CardTypes.カス,
     month: CardMonths.March,
     plant: CardPlants.桜,
@@ -78,13 +78,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.桜,
   },
   {
-    name: CardNames.藤,
+    name: CardNames.藤1,
     type: CardTypes.カス,
     month: CardMonths.April,
     plant: CardPlants.藤,
   },
   {
-    name: CardNames.藤,
+    name: CardNames.藤2,
     type: CardTypes.カス,
     month: CardMonths.April,
     plant: CardPlants.藤,
@@ -102,13 +102,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.藤,
   },
   {
-    name: CardNames.杜若,
+    name: CardNames.杜若1,
     type: CardTypes.カス,
     month: CardMonths.May,
     plant: CardPlants.杜若,
   },
   {
-    name: CardNames.杜若,
+    name: CardNames.杜若2,
     type: CardTypes.カス,
     month: CardMonths.May,
     plant: CardPlants.杜若,
@@ -126,13 +126,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.杜若,
   },
   {
-    name: CardNames.牡丹,
+    name: CardNames.牡丹1,
     type: CardTypes.カス,
     month: CardMonths.June,
     plant: CardPlants.牡丹,
   },
   {
-    name: CardNames.牡丹,
+    name: CardNames.牡丹2,
     type: CardTypes.カス,
     month: CardMonths.June,
     plant: CardPlants.牡丹,
@@ -150,13 +150,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.牡丹,
   },
   {
-    name: CardNames.萩,
+    name: CardNames.萩1,
     type: CardTypes.カス,
     month: CardMonths.July,
     plant: CardPlants.萩,
   },
   {
-    name: CardNames.萩,
+    name: CardNames.萩2,
     type: CardTypes.カス,
     month: CardMonths.July,
     plant: CardPlants.萩,
@@ -174,13 +174,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.萩,
   },
   {
-    name: CardNames.芒,
+    name: CardNames.芒1,
     type: CardTypes.カス,
     month: CardMonths.August,
     plant: CardPlants.芒,
   },
   {
-    name: CardNames.芒,
+    name: CardNames.芒2,
     type: CardTypes.カス,
     month: CardMonths.August,
     plant: CardPlants.芒,
@@ -198,13 +198,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.芒,
   },
   {
-    name: CardNames.菊,
+    name: CardNames.菊1,
     type: CardTypes.カス,
     month: CardMonths.September,
     plant: CardPlants.菊,
   },
   {
-    name: CardNames.菊,
+    name: CardNames.菊2,
     type: CardTypes.カス,
     month: CardMonths.September,
     plant: CardPlants.菊,
@@ -222,13 +222,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.菊,
   },
   {
-    name: CardNames.紅葉,
+    name: CardNames.紅葉1,
     type: CardTypes.カス,
     month: CardMonths.October,
     plant: CardPlants.紅葉,
   },
   {
-    name: CardNames.紅葉,
+    name: CardNames.紅葉2,
     type: CardTypes.カス,
     month: CardMonths.October,
     plant: CardPlants.紅葉,
@@ -270,13 +270,13 @@ const CARD_INFO_ARR: CardInfo[] = [
     plant: CardPlants.柳,
   },
   {
-    name: CardNames.桐,
+    name: CardNames.桐1,
     type: CardTypes.カス,
     month: CardMonths.December,
     plant: CardPlants.桐,
   },
   {
-    name: CardNames.桐,
+    name: CardNames.桐2,
     type: CardTypes.カス,
     month: CardMonths.December,
     plant: CardPlants.桐,
