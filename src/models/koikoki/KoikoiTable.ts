@@ -19,8 +19,8 @@ class KoikoiTable extends Table<KoikoiPlayer> {
       if (i === playerNumber - 1) {
         players.push(new KoikoiPlayer("PLAYER", PlayerTypes.Player));
       } else {
-        const botName: string = "BOT_" + String(i);
-        players.push(new KoikoiPlayer(botName, PlayerTypes.Ai));
+        const botName: string = "BOT_" + String(i + 1);
+        players.push(new KoikoiPlayer(botName, PlayerTypes.Bot));
       }
     }
 

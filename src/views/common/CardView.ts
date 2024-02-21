@@ -10,11 +10,9 @@ class CardView {
   }
 
   get cardView(): string {
-    return `<div class="card-img-wrapper"><img src="${CARD_IMAGES_MAP.get(
-      this._card.name
-    )}" alt="${
-      this._card.name
-    }" width="80" height="120" class="card-img"></div>`;
+    const cardImagePath: string = CARD_IMAGES_MAP.get(this._card.name)!;
+
+    return `<div class="card-img-wrapper"><img src="${cardImagePath}" alt="${this._card.name}" width="80" height="120" class="card-img"></div>`;
   }
 
   get card(): Card {

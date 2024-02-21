@@ -1,6 +1,6 @@
 enum PlayerTypes {
   Player = "Player",
-  Ai = "Ai",
+  Bot = "Bot",
 }
 
 export { PlayerTypes };
