@@ -81,4 +81,9 @@ function selectCardsForPlants(plants: CardPlants[]): CardInfo[] {
   return CARD_INFO_ARR.filter((cardInfo) => !plants.includes(cardInfo.plant));
 }
 
-export { hasCardPointsGame, getPointsCalculator, selectCardsForGame };
+function delay(ms: number): Promise<void> {
+  // eslint-disable-next-line
+  return new Promise<void>((resolve) => setTimeout(resolve, ms));
+}
+
+export { hasCardPointsGame, getPointsCalculator, selectCardsForGame, delay };

@@ -43,6 +43,14 @@ class TableView extends GameView {
       this._deckView.addView();
     }
   }
+
+  get playerViews(): PlayerView[] {
+    return this._playerViews;
+  }
+
+  get fieldView(): FieldView {
+    return this._fieldView
+  }
 }
 
 export { TableView };

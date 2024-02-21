@@ -230,12 +230,6 @@ main {
   border-radius: 40px;
 }
 
-.card-img-wrapper {
-  cursor: pointer;
-  height: 120px;
-  width: 80px;
-}
-
 /* カードの画像用 */
 .card-img {
   object-fit: contain;
@@ -265,16 +259,37 @@ main {
 
 /* widthが60px、heightが90pxのカードを4枚*2枚の合計8枚含む */
 .participant-hand-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   width: 240px;
   height: 180px;
   border: 2px solid var(--dark-color);
 }
 
-/* widthが40px、heightが60pxのカードを札の種類ごとに含む */
-.participant-captured-cards-wrapper {
-  width: 480px;
-  height: 180px;
-  border: 2px solid var(--dark-color);
+/* カード用 */
+
+.hand-card-img-wrapper {
+  cursor: pointer;
+  width: 60px;
+  height: 90px;
+}
+
+.hand-card-img-wrapper:hover {
+  transform: translate(4px, -4px);
+  transition: 0.2s;
+}
+
+.field-card-img-wrapper {
+  cursor: pointer;
+  width: 80px;
+  height: 120px;
+}
+
+.field-card-img-wrapper:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 
 /* BOT用 */
@@ -306,8 +321,23 @@ main {
 
 /* 獲得札用 */
 
+/* widthが40px、heightが60pxのカードを札の種類ごとに含む */
+.participant-captured-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 480px;
+  height: 180px;
+  border: 2px solid var(--dark-color);
+}
+
 /* フィールド用 */
 .field-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   position: absolute;
   width: 50%;
   height: 240px;

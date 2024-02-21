@@ -1,5 +1,6 @@
 import { CARD_IMAGES_MAP } from "../../constants/common/CardImages";
 import { Card } from "../../models/common/Card";
+import { PlayerTypes } from "../../types/common/PlayerTypes";
 
 class CardView {
   private readonly _card: Card;
@@ -9,10 +10,13 @@ class CardView {
     this._card = card;
   }
 
-  get cardView(): string {
+  public addCardView(playerType: PlayerTypes): void {
     const cardImagePath: string = CARD_IMAGES_MAP.get(this._card.name)!;
+    const handElement: HTMLDivElement = document.getElementById(
+      playerType.toLowerCase() + "Hand"
+    ) as HTMLDivElement;
 
-    return `<div class="card-img-wrapper"><img src="${cardImagePath}" alt="${this._card.name}" width="80" height="120" class="card-img"></div>`;
+    handElement.innerHTML += `<div class="hand-card-img-wrapper"><img src="${cardImagePath}" alt="${this._card.name}" width="60" height="90" class="card-img"></div>`;
   }
 
   get card(): Card {
