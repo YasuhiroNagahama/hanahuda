@@ -2,7 +2,6 @@ import { GameController } from "../../interfaces/common/GameController";
 import { Card } from "../../models/common/Card";
 import { Deck } from "../../models/common/Deck";
 import { FieldCards } from "../../models/common/FieldCards";
-import { KoikoiPlayer } from "../../models/koikoki/KoikoiPlayer";
 import { KoikoiTable } from "../../models/koikoki/KoikoiTable";
 import { delay } from "../../utils/utils";
 import { FieldView } from "../../views/koikoi/FieldView";
@@ -25,9 +24,11 @@ class KoikoiController implements GameController {
   }
 
   async initializeControllerMethods(): Promise<void> {
-    // this._koikoiSettingController.runMethods()
+    // this._koikoiSettingController.runMethods();
     this._koikoiTableView.addTableView();
     await this.dealInitialCards();
+    this.handleHandCardMouseover();
+    this.handleHandCardMouseout();
   }
 
   private async dealInitialCards(): Promise<void> {
@@ -43,14 +44,42 @@ class KoikoiController implements GameController {
         const player = playerView.playerModel;
         const card = deck.drawCard();
         player.addCard(card);
-        playerView.addCardView(card, player.playerType);
+        playerView.addCardToHand(card, player.playerType);
       }
 
       await delay(200);
       const card: Card = deck.drawCard();
 
       fieldCards.addCard(card);
-      fieldView.addCardView(card.name);
+      fieldView.addCardToField(card);
+    }
+  }
+
+  private handleHandCardMouseover(): void {
+    const handCardElements = document.querySelectorAll(".player-hand-card");
+
+    for (let i = 0; i < handCardElements.length; i++) {
+      const handCardElement = handCardElements[i];
+
+      handCardElement.addEventListener("mouseover", () => {
+        const fieldView: FieldView = this._koikoiTableView.fieldView;
+        const month: number = Number(handCardElement.getAttribute("month"));
+
+        fieldView.addFadeClass(month);
+      });
+    }
+  }
+
+  private handleHandCardMouseout(): void {
+    const handCardElements = document.querySelectorAll(".player-hand-card");
+
+    for (let i = 0; i < handCardElements.length; i++) {
+      const handCardElement = handCardElements[i];
+
+      handCardElement.addEventListener("mouseout", () => {
+        const fieldView: FieldView = this._koikoiTableView.fieldView;
+        fieldView.removeFadeClass();
+      });
     }
   }
 }

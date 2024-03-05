@@ -36,9 +36,9 @@ class PlayerView {
     }
   }
 
-  public addCardView(card: Card, playerType: PlayerTypes): void {
+  public addCardToHand(card: Card, playerType: PlayerTypes): void {
     const cardView: CardView = new CardView(card);
-    cardView.addCardView(playerType);
+    cardView.addCardToHand(playerType);
   }
 
   get playerModel(): KoikoiPlayer {
